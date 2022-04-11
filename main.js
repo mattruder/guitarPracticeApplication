@@ -239,8 +239,9 @@ window.onload = displayRandomExercise();
 
 function displayRandomExercise() {
   whatToPracticeDisplay.innerHTML += `
-  You should practice ${keys[getRandomIndex(keys)]}
+  <h1>You should practice ${keys[getRandomIndex(keys)]}
   ${scales[getRandomIndex(scales)]} in ${subdivisions[getRandomIndex(subdivisions)]}
   at ${bpm[getRandomIndex(bpm)]} BPM using ${techniques[getRandomIndex(techniques)]}!
+  </h1>
   `
 }
