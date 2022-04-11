@@ -214,6 +214,18 @@ const scales = [
   'harmonic minor',
   'melodic minor'
 ]
+const scalesAndArps = [
+  'major',
+  'minor',
+  'harmonic minor',
+  'melodic minor',
+  'fully diminished 7th',
+  'half diminished 7th',
+  'major 7th',
+  'minor 7th',
+  'dominant 7th',
+  'minor/major 7th'
+]
 const subdivisions = [
   'quarter notes',
   'eighth notes',
@@ -229,6 +241,26 @@ const techniques = [
   'fingerpicking',
   'economy/sweep picking'
 ]
+const approaches = [
+  'Scales',
+  'Arpeggios',
+  'Triads'
+]
+const positions = [
+  "1st",
+  "2nd",
+  "3rd",
+  "4th",
+  "5th",
+  "6th",
+  "7th",
+  "8th",
+  "9th",
+  "10th",
+  "11th",
+  "12th",
+  "Open"
+]
 const whatToPracticeDisplay = document.querySelector('.what-to-practice-display')
 const practiceMelodic = document.querySelector('.radiobuttoninput1')
 const practiceRhythmic = document.querySelector('.radiobuttoninput2')
@@ -236,11 +268,22 @@ const practiceMelodicAndRhythmic = document.querySelector('.radiobuttoninput3')
 const melodicCriteriaArea = document.querySelector('.melodic-criteria')
 const rhythmicCriteriaArea = document.querySelector('.rhythmic-criteria')
 const generateExerciseButton = document.querySelector('.generate-exercise-button')
+const completelyRandomButton = document.querySelector('.completely-random-exercise')
+const approachDropdown = document.querySelector('.approach-input-form')
+const keyDropdown = document.querySelector('.key-input-form')
+const tonalityDropdown = document.querySelector('.tonality-input-form')
+const techniqueDropdown = document.querySelector('.technique-input-form')
+
+
 
 
 practiceMelodic.addEventListener('click', displayMelodicDropdowns)
 practiceRhythmic.addEventListener('click', displayRhythmicDropdowns)
 practiceMelodicAndRhythmic.addEventListener('click', displayMelodicAndRhythmic)
+completelyRandomButton.addEventListener('click', displayRandomExercise)
+generateExerciseButton.addEventListener("click", (event) => {
+  displayExercise(event)
+});
 
 
 function getRandomIndex(array) {
@@ -250,6 +293,7 @@ function getRandomIndex(array) {
 // window.onload = displayRandomExercise();
 
 function displayRandomExercise() {
+  whatToPracticeDisplay.innerHTML = ''
   whatToPracticeDisplay.innerHTML += `
   <h1>You should practice ${keys[getRandomIndex(keys)]}
   ${scales[getRandomIndex(scales)]} in ${subdivisions[getRandomIndex(subdivisions)]}
@@ -279,11 +323,22 @@ function displayRhythmicDropdowns() {
   generateExerciseButton.classList.remove('hidden')
   practiceMelodic.checked = false;
   practiceMelodicAndRhythmic.checked = false;
-
 }
 
 function resetButtons() {
   practiceMelodic.checked = false;
   practiceRhythmic.checked = false;
   practiceMelodicAndRhythmic.checked = false;
+}
+
+function displayExercise(event) {
+  whatToPracticeDisplay.innerHTML = ''
+  if (approachDropdown.value === "Random" && keyDropdown.value === "Random" && tonalityDropdown.value === "Random" && techniqueDropdown.value === "Random") {
+    whatToPracticeDisplay.innerHTML += `
+    <h1>You should practice ${keys[getRandomIndex(keys)]}
+    ${scalesAndArps[getRandomIndex(scalesAndArps)]} ${approaches[getRandomIndex(approaches)]} using ${techniques[getRandomIndex(techniques)]}
+    in ${positions[getRandomIndex(positions)]} position!
+    </h1>
+    `
+  }
 }

@@ -12,6 +12,13 @@ header {
   align-items: center;
 }
 
+.completely-random-button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+
 .square-1 {
   height: 400px;
   width: 500px;

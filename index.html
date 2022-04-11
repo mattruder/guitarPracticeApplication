@@ -38,7 +38,7 @@
   <div class="square-2">
     <div class="melodic-criteria hidden">
       <form>
-            <div class="approach-input">
+            <div class="approach-input-area">
             <label for="approach-input">Approach:</label>
             <select class="approach-input-form" name="approach-input">
               <option value="Random">Random</option>
@@ -47,7 +47,7 @@
               <option value="Triad">Triad</option>
             </select>
             </div>
-            <div class="key-input">
+            <div class="key-input-area">
             <label for="key-input">Key:</label>
             <select class="key-input-form" name="key-input">
               <option value="Random">Random</option>
@@ -65,7 +65,7 @@
               <option value="B">B</option>
             </select>
             </div>
-            <div class="tonality-input">
+            <div class="tonality-input-area">
             <label for="tonality-input">Tonality:</label>
             <select class="tonality-input-form" name="tonality-input">
               <option value="Random">Random</option>
@@ -75,7 +75,7 @@
               <option value="Melodic Minor">Melodic Minor</option>
             </select>
             </div>
-            <div class="technique-input">
+            <div class="technique-input-area">
             <label for="technique-input">Technique:</label>
             <select class="technique-input-form" name="technique-input">
               <option value="Random">Random</option>
@@ -87,10 +87,29 @@
               <option value="Tapping">Tapping</option>
             </select>
             </div>
+            <div class="position-input-area">
+            <label for="position-input">Position:</label>
+            <select class="position-input-form" name="position-input">
+              <option value="Random">Random</option>
+              <option value="1st">1st</option>
+              <option value="2nd">2nd</option>
+              <option value="3rd">3rd</option>
+              <option value="4th">4th</option>
+              <option value="5th">5th</option>
+              <option value="6th">6th</option>
+              <option value="7th">7th</option>
+              <option value="8th">8th</option>
+              <option value="9th">9th</option>
+              <option value="10th">10th</option>
+              <option value="11th">11th</option>
+              <option value="12th">12th</option>
+              <option value="Open">Open</option>
+            </select>
+            </div>
           </form>
     </div>
     <div class="rhythmic-criteria hidden">
-      <div class="subdivision-input">
+      <div class="subdivision-input-area">
       <label for="subdivision-input">Subdivision:</label>
       <select class="subdivision-input-form" name="subdivision-input">
         <option value="Random">Random</option>
@@ -101,7 +120,7 @@
         <option value="sixteenth note triplets">sixteenth note triplets</option>
       </select>
       </div>
-      <div class="bpm-radio-button-area">
+      <div class="bpm-radio-button-area-area">
         <div class="random-bpm-radiobutton">
        <input class="random-bpm-radiobutton-radiobuttoninput1" type="radio" id="button4">
        <label for="button4">Random BPM</label>
@@ -109,7 +128,7 @@
      <br>
      <div class="user-bpm-radiobutton">
        <input class="user-bpm-radiobutton-input" type="radio" id="button5">
-       <label for="button2">Choose BPM</label>
+       <label for="button5">Choose BPM</label>
      </div>
      <br>
      <div class="bpm-range-min-input-section">
@@ -130,6 +149,9 @@
     </div>
   </div>
   </section>
+  <div class="completely-random-button-area">
+  <button class='completely-random-exercise'>Generate Completely Random Exercise</button>
+  </div>
 </body>
 <script type="text/javascript" src="main.js"></script>
 </html>
