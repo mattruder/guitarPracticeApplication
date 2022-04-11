@@ -7,12 +7,128 @@
   <h1>Guitar Practice Generator</h1>
 </header>
 <body>
-  <section class="what-to-practice-display">
-  </section>
-  <section class="radio-buttons">
-  </section>  
-  <section class="dropdowns">
+  <section class="main-content-area">
+  <div class="square-1"
+  <div class="radio-buttons">
+    <div class="box">
+      <h1>What would you like to practice?</h1>
+      <div class="what-to-practice-radio-button-area">
+        <div class="radiobutton1">
+       <input class="radiobuttoninput1" type="radio" id="button1">
+       <label for="button1">Melodic Content</label>
+     </div>
+     <br>
+     <div class="radiobutton2">
+       <input class="radiobuttoninput2" type="radio" id="button2">
+       <label for="button2">Rhythmic Content</label>
+     </div>
+     <br>
+     <div class="radiobutton3">
+       <input class="radiobuttoninput3" type="radio" id="button3">
+       <label for="button3">Melodic and Rhythmic Content</label>
+     </div>
+     </div>
+     <section class="dropdowns">
 
+     </section>
+
+    </div>
+  </div>
+  </div>
+  <div class="square-2">
+    <div class="melodic-criteria hidden">
+      <form>
+            <div class="approach-input">
+            <label for="approach-input">Approach:</label>
+            <select class="approach-input-form" name="approach-input">
+              <option value="Random">Random</option>
+              <option value="Scale">Scale</option>
+              <option value="Arpeggio">Arpeggio</option>
+              <option value="Triad">Triad</option>
+            </select>
+            </div>
+            <div class="key-input">
+            <label for="key-input">Key:</label>
+            <select class="key-input-form" name="key-input">
+              <option value="Random">Random</option>
+              <option value="C">C</option>
+              <option value="C#/Db">C#/Db</option>
+              <option value="D">D</option>
+              <option value="D#/Eb">D#/Eb</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+              <option value="F#/Gb">F#/Gb</option>
+              <option value="G">G</option>
+              <option value="G#/Ab">G#/Ab</option>
+              <option value="A">A</option>
+              <option value="A#/Bb">A#/Bb</option>
+              <option value="B">B</option>
+            </select>
+            </div>
+            <div class="tonality-input">
+            <label for="tonality-input">Tonality:</label>
+            <select class="tonality-input-form" name="tonality-input">
+              <option value="Random">Random</option>
+              <option value="Major">Major</option>
+              <option value="Minor">Minor</option>
+              <option value="Harmonic Minor">Harmonic Minor</option>
+              <option value="Melodic Minor">Melodic Minor</option>
+            </select>
+            </div>
+            <div class="technique-input">
+            <label for="technique-input">Technique:</label>
+            <select class="technique-input-form" name="technique-input">
+              <option value="Random">Random</option>
+              <option value="Alternate Picking">Alternate Picking</option>
+              <option value="Hybrid Picking">Hybrid Picking</option>
+              <option value="Economy/Sweep Picking">Economy/Sweep Picking</option>
+              <option value="Fingerpicking">Fingerpicking</option>
+              <option value="Legato">Legato</option>
+              <option value="Tapping">Tapping</option>
+            </select>
+            </div>
+          </form>
+    </div>
+    <div class="rhythmic-criteria hidden">
+      <div class="subdivision-input">
+      <label for="subdivision-input">Subdivision:</label>
+      <select class="subdivision-input-form" name="subdivision-input">
+        <option value="Random">Random</option>
+        <option value="quarter notes">quarter notes</option>
+        <option value="eighth notes">eighth notes</option>
+        <option value="sixteenth notes">sixteenth notes</option>
+        <option value="eight note triplets">eight note triplets</option>
+        <option value="sixteenth note triplets">sixteenth note triplets</option>
+      </select>
+      </div>
+      <div class="bpm-radio-button-area">
+        <div class="random-bpm-radiobutton">
+       <input class="random-bpm-radiobutton-radiobuttoninput1" type="radio" id="button4">
+       <label for="button4">Random BPM</label>
+     </div>
+     <br>
+     <div class="user-bpm-radiobutton">
+       <input class="user-bpm-radiobutton-input" type="radio" id="button5">
+       <label for="button2">Choose BPM</label>
+     </div>
+     <br>
+     <div class="bpm-range-min-input-section">
+            <label for="bpm-selection">Minimum BPM:</label>
+            <input class="bpm-selection-input" type="text" id="bpm-selection-min" name="bpm-selection-minimum">
+            </div>
+     <div class="bpm-range-max-input-section">
+           <label for="bpm-selection">Maximum BPM:</label>
+           <input class="bpm-selection-input" type="text" id="bpm-selection-max" name="bpm-selection-maximum">
+           </div>
+     </div>
+
+    </div>
+    <button class='generate-exercise-button hidden'>Generate Exercise</button>
+  </div>
+  <div class="square-3">
+    <div class="what-to-practice-display">
+    </div>
+  </div>
   </section>
 </body>
 <script type="text/javascript" src="main.js"></script>

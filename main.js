@@ -230,12 +230,24 @@ const techniques = [
   'economy/sweep picking'
 ]
 const whatToPracticeDisplay = document.querySelector('.what-to-practice-display')
+const practiceMelodic = document.querySelector('.radiobuttoninput1')
+const practiceRhythmic = document.querySelector('.radiobuttoninput2')
+const practiceMelodicAndRhythmic = document.querySelector('.radiobuttoninput3')
+const melodicCriteriaArea = document.querySelector('.melodic-criteria')
+const rhythmicCriteriaArea = document.querySelector('.rhythmic-criteria')
+const generateExerciseButton = document.querySelector('.generate-exercise-button')
+
+
+practiceMelodic.addEventListener('click', displayMelodicDropdowns)
+practiceRhythmic.addEventListener('click', displayRhythmicDropdowns)
+practiceMelodicAndRhythmic.addEventListener('click', displayMelodicAndRhythmic)
+
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
-window.onload = displayRandomExercise();
+// window.onload = displayRandomExercise();
 
 function displayRandomExercise() {
   whatToPracticeDisplay.innerHTML += `
@@ -244,4 +256,34 @@ function displayRandomExercise() {
   at ${bpm[getRandomIndex(bpm)]} BPM using ${techniques[getRandomIndex(techniques)]}!
   </h1>
   `
+}
+
+function displayMelodicAndRhythmic() {
+  melodicCriteriaArea.classList.remove('hidden')
+  rhythmicCriteriaArea.classList.remove('hidden')
+  practiceRhythmic.checked = false;
+  practiceMelodic.checked = false;
+}
+
+function displayMelodicDropdowns() {
+  melodicCriteriaArea.classList.remove('hidden')
+  rhythmicCriteriaArea.classList.add('hidden')
+  generateExerciseButton.classList.remove('hidden')
+  practiceRhythmic.checked = false;
+  practiceMelodicAndRhythmic.checked = false;
+}
+
+function displayRhythmicDropdowns() {
+  rhythmicCriteriaArea.classList.remove('hidden')
+  melodicCriteriaArea.classList.add('hidden')
+  generateExerciseButton.classList.remove('hidden')
+  practiceMelodic.checked = false;
+  practiceMelodicAndRhythmic.checked = false;
+
+}
+
+function resetButtons() {
+  practiceMelodic.checked = false;
+  practiceRhythmic.checked = false;
+  practiceMelodicAndRhythmic.checked = false;
 }
