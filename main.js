@@ -8,7 +8,7 @@ const arpeggios = [
   'dominant 7th',
   'minor/major 7th'
 ]
-const bpm = [
+const bpms = [
 30,
 31,
 32,
@@ -230,7 +230,7 @@ const subdivisions = [
   'quarter notes',
   'eighth notes',
   'sixteenth notes',
-  'eight note triplets',
+  'eighth note triplets',
   'sixteenth note triplets'
 ]
 const techniques = [
@@ -242,9 +242,9 @@ const techniques = [
   'economy/sweep picking'
 ]
 const approaches = [
-  'Scales',
-  'Arpeggios',
-  'Triads'
+  'scales',
+  'arpeggios',
+  'triads'
 ]
 const positions = [
   "1st",
@@ -277,7 +277,14 @@ const keyDropdown = document.querySelector('.key-input-form')
 const tonalityDropdown = document.querySelector('.tonality-input-form')
 const techniqueDropdown = document.querySelector('.technique-input-form')
 const positionDropdown = document.querySelector('.position-input-form')
-
+const subdivisionDropdown = document.querySelector('.subdivision-input-form')
+const randomBpmButton = document.querySelector('.random-bpm-radiobutton-input')
+const chooseBpmButton = document.querySelector('.user-bpm-radiobutton-input')
+const minimumBpmEntryField = document.querySelector('.bpm-selection-minimum-input')
+const maximumBpmEntryField = document.querySelector('.bpm-selection-maximum-input')
+const minimumBpmArea = document.querySelector('.bpm-range-min-input-section')
+const maximumBpmArea = document.querySelector('.bpm-range-max-input-section')
+const bpmSelections = document.querySelector('.bpm-selections')
 
 
 practiceMelodic.addEventListener('click', displayMelodicDropdowns)
@@ -287,20 +294,24 @@ completelyRandomButton.addEventListener('click', displayRandomExercise)
 generateMelodicExerciseButton.addEventListener("click", (event) => {
   displayMelodicExercise(event)
 });
-
+generateRhythmicExerciseButton.addEventListener("click", (event) => {
+  displayRhythmicExercise(event)
+});
+chooseBpmButton.addEventListener("click", displayBpmSelections)
+randomBpmButton.addEventListener("click", removeBpmSelections)
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
-// window.onload = displayRandomExercise();
+window.onload = displayRandomExercise();
 
 function displayRandomExercise() {
   whatToPracticeDisplay.innerHTML = ''
   whatToPracticeDisplay.innerHTML += `
   <h1>You should practice ${keys[getRandomIndex(keys)]}
   ${scales[getRandomIndex(scales)]} in ${subdivisions[getRandomIndex(subdivisions)]}
-  at ${bpm[getRandomIndex(bpm)]} BPM using ${techniques[getRandomIndex(techniques)]}!
+  at ${bpms[getRandomIndex(bpms)]} BPM using ${techniques[getRandomIndex(techniques)]}!
   </h1>
   `
 }
@@ -341,6 +352,16 @@ function resetLeftButtons() {
   practiceMelodicAndRhythmic.checked = false;
 }
 
+function displayBpmSelections() {
+  randomBpmButton.checked = false;
+  bpmSelections.classList.remove("hidden")
+}
+
+function removeBpmSelections() {
+  chooseBpmButton.checked = false;
+  bpmSelections.classList.add("hidden")
+}
+
 function displayMelodicExercise(event) {
   whatToPracticeDisplay.innerHTML = ''
   if(practiceMelodic.checked = true) {
@@ -370,6 +391,36 @@ function displayMelodicExercise(event) {
     in ${position} position!
     </h1>
     `
+  }
+}
 
- }
+function displayRhythmicExercise(event) {
+  whatToPracticeDisplay.innerHTML = '';
+  let subdivision = subdivisionDropdown.value;
+  let bpm;
+  if (subdivision === "Random") {
+    subdivision = subdivisions[getRandomIndex(subdivisions)]
+  }
+  if(!randomBpmButton.checked && !chooseBpmButton.checked) {
+    bpm = bpms[getRandomIndex(bpms)]
+  }
+  else if (randomBpmButton.checked === true) {
+    chooseBpmButton.checked === false
+    bpm = bpms[getRandomIndex(bpms)]
+  }
+  else if (chooseBpmButton.checked === true) {
+    randomBpmButton.checked === false
+    bpm = createBpmArray(minimumBpmEntryField.value, maximumBpmEntryField.value)
+  }
+  whatToPracticeDisplay.innerHTML += `
+  <h1>You should practice ${subdivision} at ${bpm} bpm!</h1>
+  `
+}
+
+function createBpmArray(min, max) {
+  let newBpmArray = []
+  for (i = min; i <= max; i++) {
+    newBpmArray.push(i)
+  }
+  return newBpmArray[getRandomIndex(newBpmArray)]
 }
