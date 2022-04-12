@@ -54,3 +54,9 @@ header {
 .hidden {
   display: none;
 }
+
+.what-to-practice-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
