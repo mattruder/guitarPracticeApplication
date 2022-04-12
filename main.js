@@ -297,8 +297,12 @@ generateMelodicExerciseButton.addEventListener("click", (event) => {
 generateRhythmicExerciseButton.addEventListener("click", (event) => {
   displayRhythmicExercise(event)
 });
+generateLargeExerciseButton.addEventListener("click", (event) => {
+  displayMelodicAndRhythmicExercise(event)
+})
 chooseBpmButton.addEventListener("click", displayBpmSelections)
 randomBpmButton.addEventListener("click", removeBpmSelections)
+
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -423,4 +427,51 @@ function createBpmArray(min, max) {
     newBpmArray.push(i)
   }
   return newBpmArray[getRandomIndex(newBpmArray)]
+}
+
+function displayMelodicAndRhythmicExercise(event) {
+  whatToPracticeDisplay.innerHTML = '';
+  let subdivision = subdivisionDropdown.value;
+  let bpm;
+  if (subdivision === "Random") {
+    subdivision = subdivisions[getRandomIndex(subdivisions)]
+  }
+  if(!randomBpmButton.checked && !chooseBpmButton.checked) {
+    bpm = bpms[getRandomIndex(bpms)]
+  }
+  else if (randomBpmButton.checked === true) {
+    chooseBpmButton.checked === false
+    bpm = bpms[getRandomIndex(bpms)]
+  }
+  else if (chooseBpmButton.checked === true) {
+    randomBpmButton.checked === false
+    bpm = createBpmArray(minimumBpmEntryField.value, maximumBpmEntryField.value)
+  }
+  let approach = approachDropdown.value;
+  if (approach === "Random") {
+    approach = approaches[getRandomIndex(approaches)]
+  }
+  let key = keyDropdown.value;
+  if (key === "Random") {
+    key = keys[getRandomIndex(keys)]
+  }
+  let tonality = tonalityDropdown.value;
+  if (tonality === "Random") {
+    tonality = scalesAndArps[getRandomIndex(scalesAndArps)]
+  }
+  let technique = techniqueDropdown.value;
+  if (technique === "Random") {
+    technique = techniques[getRandomIndex(techniques)]
+  }
+  let position = positionDropdown.value;
+  if (position === "Random") {
+    position = positions[getRandomIndex(positions)]
+  }
+  whatToPracticeDisplay.innerHTML +=
+  `
+  <h1>You should practice ${key}
+  ${tonality} ${approach} using ${technique}
+  in ${position} position in ${subdivision} at ${bpm} bpm!
+  </h1>
+  `
 }
