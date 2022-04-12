@@ -234,8 +234,8 @@ const subdivisions = [
   'sixteenth note triplets'
 ]
 const techniques = [
-  'alternate picking starting on downstroke',
-  'alternate picking starting on upstroke',
+  'alternate picking starting on a downstroke',
+  'alternate picking starting on an upstroke',
   'legato',
   'hybrid picking',
   'fingerpicking',
@@ -268,12 +268,15 @@ const practiceMelodicAndRhythmic = document.querySelector('.radiobuttoninput3')
 const melodicCriteriaArea = document.querySelector('.melodic-criteria')
 const rhythmicCriteriaArea = document.querySelector('.rhythmic-criteria')
 const generateExerciseButton = document.querySelector('.generate-exercise-button')
+const generateMelodicExerciseButton = document.querySelector('.generate-melodic-exercise-button')
+const generateRhythmicExerciseButton = document.querySelector('.generate-rhythmic-exercise-button')
+const generateLargeExerciseButton = document.querySelector('.generate-large-exercise-button')
 const completelyRandomButton = document.querySelector('.completely-random-exercise')
 const approachDropdown = document.querySelector('.approach-input-form')
 const keyDropdown = document.querySelector('.key-input-form')
 const tonalityDropdown = document.querySelector('.tonality-input-form')
 const techniqueDropdown = document.querySelector('.technique-input-form')
-
+const positionDropdown = document.querySelector('.position-input-form')
 
 
 
@@ -281,8 +284,8 @@ practiceMelodic.addEventListener('click', displayMelodicDropdowns)
 practiceRhythmic.addEventListener('click', displayRhythmicDropdowns)
 practiceMelodicAndRhythmic.addEventListener('click', displayMelodicAndRhythmic)
 completelyRandomButton.addEventListener('click', displayRandomExercise)
-generateExerciseButton.addEventListener("click", (event) => {
-  displayExercise(event)
+generateMelodicExerciseButton.addEventListener("click", (event) => {
+  displayMelodicExercise(event)
 });
 
 
@@ -307,12 +310,17 @@ function displayMelodicAndRhythmic() {
   rhythmicCriteriaArea.classList.remove('hidden')
   practiceRhythmic.checked = false;
   practiceMelodic.checked = false;
+  generateLargeExerciseButton.classList.remove('hidden')
+  generateMelodicExerciseButton.classList.add('hidden')
+  generateRhythmicExerciseButton.classList.add('hidden')
 }
 
 function displayMelodicDropdowns() {
   melodicCriteriaArea.classList.remove('hidden')
   rhythmicCriteriaArea.classList.add('hidden')
-  generateExerciseButton.classList.remove('hidden')
+  generateMelodicExerciseButton.classList.remove('hidden')
+  generateRhythmicExerciseButton.classList.add('hidden')
+  generateLargeExerciseButton.classList.add('hidden')
   practiceRhythmic.checked = false;
   practiceMelodicAndRhythmic.checked = false;
 }
@@ -320,25 +328,48 @@ function displayMelodicDropdowns() {
 function displayRhythmicDropdowns() {
   rhythmicCriteriaArea.classList.remove('hidden')
   melodicCriteriaArea.classList.add('hidden')
-  generateExerciseButton.classList.remove('hidden')
+  generateRhythmicExerciseButton.classList.remove('hidden')
+  generateLargeExerciseButton.classList.add('hidden')
+  generateMelodicExerciseButton.classList.add('hidden')
   practiceMelodic.checked = false;
   practiceMelodicAndRhythmic.checked = false;
 }
 
-function resetButtons() {
+function resetLeftButtons() {
   practiceMelodic.checked = false;
   practiceRhythmic.checked = false;
   practiceMelodicAndRhythmic.checked = false;
 }
 
-function displayExercise(event) {
+function displayMelodicExercise(event) {
   whatToPracticeDisplay.innerHTML = ''
-  if (approachDropdown.value === "Random" && keyDropdown.value === "Random" && tonalityDropdown.value === "Random" && techniqueDropdown.value === "Random") {
+  if(practiceMelodic.checked = true) {
+    let approach = approachDropdown.value;
+    if (approach === "Random") {
+      approach = approaches[getRandomIndex(approaches)]
+    }
+    let key = keyDropdown.value;
+    if (key === "Random") {
+      key = keys[getRandomIndex(keys)]
+    }
+    let tonality = tonalityDropdown.value;
+    if (tonality === "Random") {
+      tonality = scalesAndArps[getRandomIndex(scalesAndArps)]
+    }
+    let technique = techniqueDropdown.value;
+    if (technique === "Random") {
+      technique = techniques[getRandomIndex(techniques)]
+    }
+    let position = positionDropdown.value;
+    if (position === "Random") {
+      position = positions[getRandomIndex(positions)]
+    }
     whatToPracticeDisplay.innerHTML += `
-    <h1>You should practice ${keys[getRandomIndex(keys)]}
-    ${scalesAndArps[getRandomIndex(scalesAndArps)]} ${approaches[getRandomIndex(approaches)]} using ${techniques[getRandomIndex(techniques)]}
-    in ${positions[getRandomIndex(positions)]} position!
+    <h1>You should practice ${key}
+    ${tonality} ${approach} using ${technique}
+    in ${position} position!
     </h1>
     `
-  }
+
+ }
 }
