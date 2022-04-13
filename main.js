@@ -227,11 +227,21 @@ const scalesAndArps = [
   'minor/major 7th'
 ]
 const subdivisions = [
+  'whole notes',
+  'half notes',
   'quarter notes',
   'eighth notes',
   'sixteenth notes',
   'eighth note triplets',
-  'sixteenth note triplets'
+  'sixteenth note triplets',
+  'quarter notes on upbeats',
+  'eighth notes on upbeats',
+  'sixteenth notes on upbeats',
+  'dotted quarter notes',
+  'dotted eighth notes',
+  'dotted quarter notes on upbeats',
+  'dotted eight notes on upbeats'
+
 ]
 const techniques = [
   'alternate picking starting on a downstroke',
