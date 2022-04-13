@@ -348,6 +348,7 @@ function displayRhythmicDropdowns() {
   generateMelodicExerciseButton.classList.add('hidden')
   practiceMelodic.checked = false;
   practiceMelodicAndRhythmic.checked = false;
+  randomBpmButton.checked = true;
 }
 
 function resetLeftButtons() {
@@ -398,7 +399,10 @@ function displayMelodicExercise(event) {
   }
 }
 
-function displayRhythmicExercise(event) {
+
+function displayRhythmicExercise() {
+let definedBpm = createBpmArray(minimumBpmEntryField.value, maximumBpmEntryField.value)
+console.log(definedBpm)
   whatToPracticeDisplay.innerHTML = '';
   let subdivision = subdivisionDropdown.value;
   let bpm;
@@ -414,7 +418,7 @@ function displayRhythmicExercise(event) {
   }
   else if (chooseBpmButton.checked === true) {
     randomBpmButton.checked === false
-    bpm = createBpmArray(minimumBpmEntryField.value, maximumBpmEntryField.value)
+    bpm = definedBpm
   }
   whatToPracticeDisplay.innerHTML += `
   <h1>You should practice ${subdivision} at ${bpm} bpm!</h1>
@@ -428,6 +432,8 @@ function createBpmArray(min, max) {
   }
   return newBpmArray[getRandomIndex(newBpmArray)]
 }
+
+
 
 function displayMelodicAndRhythmicExercise(event) {
   whatToPracticeDisplay.innerHTML = '';
