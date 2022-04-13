@@ -4,6 +4,24 @@ header {
   justify-content: center
 }
 
+button {
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 3px black;
+  background-color: white;
+}
+
+.square-2 > button {
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 3px black;
+  background-color: white;
+}
+
+.completely-random-exercise {
+  background-color: white;
+}
+
 .main-content-area {
   display: flex;
   /* position: relative; */
