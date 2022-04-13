@@ -240,7 +240,7 @@ const subdivisions = [
   'dotted quarter notes',
   'dotted eighth notes',
   'dotted quarter notes on upbeats',
-  'dotted eight notes on upbeats'
+  'dotted eighth notes on upbeats'
 
 ]
 const techniques = [
