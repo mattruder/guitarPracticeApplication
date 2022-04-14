@@ -127,6 +127,7 @@ button {
 .metronome-title {
   padding-right: 25px;
   font-size: 20px;
+  padding-left: 25px;
 }
 
 .play {

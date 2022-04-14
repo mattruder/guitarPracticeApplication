@@ -295,6 +295,9 @@ const maximumBpmEntryField = document.querySelector('.bpm-selection-maximum-inpu
 const minimumBpmArea = document.querySelector('.bpm-range-min-input-section')
 const maximumBpmArea = document.querySelector('.bpm-range-max-input-section')
 const bpmSelections = document.querySelector('.bpm-selections')
+const setTempoButton = document.querySelector('.set-tempo-button')
+var globalBPM = 120;
+
 
 //Metronome
 var metronome = new Metronome();
@@ -321,9 +324,11 @@ for (var i = 0; i < tempoChangeButtons.length; i++) {
     tempoChangeButtons[i].addEventListener('click', function() {
         metronome.tempo += parseInt(this.dataset.change);
         tempo.textContent = metronome.tempo;
+
     });
 }
 //Metronome
+
 
 
 practiceMelodic.addEventListener('click', displayMelodicDropdowns)
@@ -341,6 +346,7 @@ generateLargeExerciseButton.addEventListener("click", (event) => {
 })
 chooseBpmButton.addEventListener("click", displayBpmSelections)
 randomBpmButton.addEventListener("click", removeBpmSelections)
+setTempoButton.addEventListener("click", setMetronomeTempo)
 
 
 function getRandomIndex(array) {
@@ -461,6 +467,7 @@ let definedBpm = createBpmArray(minimumBpmEntryField.value, maximumBpmEntryField
     randomBpmButton.checked === false
     bpm = definedBpm
   }
+  globalBPM = bpm
   whatToPracticeDisplay.innerHTML += `
   <h1>You should practice ${subdivision} at ${bpm} bpm!</h1>
   `
@@ -521,4 +528,9 @@ function displayMelodicAndRhythmicExercise(event) {
   in ${position} position in ${subdivision} at ${bpm} bpm!
   </h1>
   `
+}
+
+function setMetronomeTempo() {
+  metronome.tempo = globalBPM
+  tempo.textContent = globalBPM
 }
