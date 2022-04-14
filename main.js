@@ -419,6 +419,7 @@ function removeBpmSelections() {
 }
 
 function displayMelodicExercise(event) {
+  setTempoButton.classList.add('hidden')
   whatToPracticeDisplay.innerHTML = ''
   if(practiceMelodic.checked = true) {
     let approach = approachDropdown.value;
@@ -452,6 +453,7 @@ function displayMelodicExercise(event) {
 
 
 function displayRhythmicExercise() {
+  setTempoButton.classList.remove('hidden')
 let definedBpm = createBpmArray(minimumBpmEntryField.value, maximumBpmEntryField.value)
   whatToPracticeDisplay.innerHTML = '';
   let subdivision = subdivisionDropdown.value;
@@ -487,6 +489,7 @@ function createBpmArray(min, max) {
 
 
 function displayMelodicAndRhythmicExercise(event) {
+  setTempoButton.classList.remove('hidden')
   whatToPracticeDisplay.innerHTML = '';
   let subdivision = subdivisionDropdown.value;
   let bpm;
