@@ -437,7 +437,7 @@ console.log(definedBpm)
 
 function createBpmArray(min, max) {
   let newBpmArray = []
-  for (i = min; i <= max; i++) {
+  for (let i = +min; i <= +max; i++) {
     newBpmArray.push(i)
   }
   return newBpmArray[getRandomIndex(newBpmArray)]
