@@ -338,6 +338,7 @@ function displayMelodicAndRhythmic() {
   generateLargeExerciseButton.classList.remove('hidden')
   generateMelodicExerciseButton.classList.add('hidden')
   generateRhythmicExerciseButton.classList.add('hidden')
+  randomBpmButton.checked = true;
 }
 
 function displayMelodicDropdowns() {
@@ -412,7 +413,6 @@ function displayMelodicExercise(event) {
 
 function displayRhythmicExercise() {
 let definedBpm = createBpmArray(minimumBpmEntryField.value, maximumBpmEntryField.value)
-console.log(definedBpm)
   whatToPracticeDisplay.innerHTML = '';
   let subdivision = subdivisionDropdown.value;
   let bpm;
