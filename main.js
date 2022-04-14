@@ -356,11 +356,13 @@ function getRandomIndex(array) {
 window.onload = displayRandomExercise();
 
 function displayRandomExercise() {
+  let bpm = bpms[getRandomIndex(bpms)]
+  globalBPM = bpm
   whatToPracticeDisplay.innerHTML = ''
   whatToPracticeDisplay.innerHTML += `
   <h1>You should practice ${keys[getRandomIndex(keys)]}
   ${scales[getRandomIndex(scales)]} in ${subdivisions[getRandomIndex(subdivisions)]}
-  at ${bpms[getRandomIndex(bpms)]} BPM using ${techniques[getRandomIndex(techniques)]}!
+  at ${bpm} BPM using ${techniques[getRandomIndex(techniques)]}!
   </h1>
   `
 }
@@ -521,6 +523,7 @@ function displayMelodicAndRhythmicExercise(event) {
   if (position === "Random") {
     position = positions[getRandomIndex(positions)]
   }
+  globalBPM = bpm
   whatToPracticeDisplay.innerHTML +=
   `
   <h1>You should practice ${key}
