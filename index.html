@@ -4,11 +4,35 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <header>
+  <div class="left-header">
   <h1>Guitar Practice Generator</h1>
+  </div>
+  <div class="right-header">
+    <div class="the-metronome">
+
+    <div class="metronome-title">Metronome</div>
+     <button id="play-button" class="">
+         <div id="play-pause-icon" class="play"></div>
+     </button>
+
+     <div class="tempo-controls">
+         <button class="tempo-change" data-change="-5">-5</button>
+         <button class="tempo-change" data-change="-1">-</button>
+
+         <div class="tempo-container">
+             <div id="tempo">120</div>
+             <div class="bpm">bpm</div>
+         </div>
+
+         <button class="tempo-change" data-change="+1">+</button>
+         <button class="tempo-change" data-change="+5">+5</button>
+     </div>
+   </div>
+  </div>
 </header>
 <body>
   <section class="main-content-area">
-  <div class="square-1"
+  <div class="square-1">
   <div class="radio-buttons">
     <div class="box">
       <h1>What would you like to practice?</h1>
@@ -163,26 +187,7 @@
   </div>
   </section>
 
-  <div class="the-metronome">
 
-  <div class="title">Metronome</div>
-   <button id="play-button" class="">
-       <div id="play-pause-icon" class="play"></div>
-   </button>
-
-   <div class="tempo-controls">
-       <button class="tempo-change" data-change="-5">-5</button>
-       <button class="tempo-change" data-change="-1">-</button>
-
-       <div class="tempo-container">
-           <div id="tempo">120</div>
-           <div class="bpm">bpm</div>
-       </div>
-
-       <button class="tempo-change" data-change="+1">+</button>
-       <button class="tempo-change" data-change="+5">+5</button>
-   </div>
- </div>
 
   <div class="completely-random-button-area">
   <button class='completely-random-exercise'>Generate Completely Random Exercise</button>

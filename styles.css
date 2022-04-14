@@ -1,7 +1,11 @@
+* {
+  font-family: Trebuchet MS, sans-serif
+}
+
 header {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: space-around;
 }
 
 button:hover {
@@ -32,6 +36,7 @@ button {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding-top: 20px;
 }
 
 .completely-random-button-area {
@@ -49,6 +54,7 @@ button {
   align-items: center;
   font-family: 'Roboto', sans-serif;
   background-color: rgba(225, 225, 225, .9);
+    border: 2px solid black;
 }
 
 .square-2 {
@@ -60,6 +66,7 @@ button {
   align-items: center;
   font-family: 'Roboto', sans-serif;
   background-color: rgba(225, 225, 225, .9);
+    border: 2px solid black;
 }
 
 .square-3{
@@ -71,6 +78,7 @@ button {
   align-items: center;
   font-family: 'Roboto', sans-serif;
   background-color: rgba(225, 225, 225, .9);
+    border: 2px solid black;
 }
 
 .hidden {
@@ -103,16 +111,22 @@ button {
 }
 
 .tempo-controls {
-    margin-top: 30px;
-
+    /* margin-top: 30px; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row;
+    padding-right: 25px;
+    padding-left: 25px;
 }
 
 .tempo-container {
     margin: 0 15px;
+}
+
+.metronome-title {
+  padding-right: 25px;
+  font-size: 20px;
 }
 
 .play {
@@ -133,9 +147,11 @@ button {
 }
 
 .the-metronome {
-  padding-top: 25px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-direction: row;
+  border: 2px solid black;
+  padding: 5px;
+  background-color: rgba(225, 225, 225, .9);
 }
