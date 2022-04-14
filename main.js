@@ -368,6 +368,7 @@ function displayMelodicAndRhythmic() {
   generateMelodicExerciseButton.classList.add('hidden')
   generateRhythmicExerciseButton.classList.add('hidden')
   randomBpmButton.checked = true;
+  chooseBpmButton.checked = false;
 }
 
 function displayMelodicDropdowns() {
@@ -389,6 +390,7 @@ function displayRhythmicDropdowns() {
   practiceMelodic.checked = false;
   practiceMelodicAndRhythmic.checked = false;
   randomBpmButton.checked = true;
+  chooseBpmButton.checked = false;
 }
 
 function resetLeftButtons() {
